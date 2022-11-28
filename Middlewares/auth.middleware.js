@@ -1,5 +1,4 @@
 import { Router} from "express";
-// import {express} from "express";
 import { User } from "../Models/users.model.js";
 import bcryptjs from 'bcryptjs';
 import jwt from 'jsonwebtoken'
@@ -8,9 +7,9 @@ import {randomInt} from 'crypto'
 dotenv.config({
     path : './.env'
 })
-// const app = express();
-const JWT_SECRET =  process.env.JWT_SECRET_KEY;
-export const AuthRouter = Router();
+
+const JWT_SECRET =  process.env.JWT_SECRET_KEY
+export const AuthRouter = Router()
 
 
 AuthRouter.post('/Signup',async(req,res)=>{
@@ -45,30 +44,29 @@ AuthRouter.post('/login', async (req, res) => {
     try {
         const user = req.body;
         let {Mobile_Number} = user;    
-        //  console.log(_id);    
+            
         let existingUser =  await User.findOne({Mobile_Number})
         
         console.log("in login route",existingUser);
         if(existingUser){
-            //  let match = bcryptjs.compareSync(password,existingUser.password)
-            //produce JWT token 
+           
             let token = jwt.sign({
                 _id : existingUser._id,
                 Mobile_Number : existingUser.Mobile_Number
             }, JWT_SECRET)
             
             console.log(token)
-            let otp = randomInt(100000,999999)
+            let otp = randomInt(100000,999999);
             return res.status(200).send({
                 id : existingUser._id,
                 status : 'success',
-             token : token,
-             Otp : otp
+                token : token,
+                Otp : otp
           })
          }
            else{
             return res.status(404).send({
-                error : 'wrong credentials'
+                error : 'Wrong Credentials'
             })
            }
     } catch (error) {
