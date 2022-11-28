@@ -114,7 +114,7 @@ const Slider = () => {
           >
             <img
               //we adresshed here to give the location of public file  {index + 1} dynamic path
-              src={process.env.PUBLIC_URL + `../Imgs/img${index + 1}.jpg`} 
+              src={process.env.PUBLIC_URL + `./Imgs/img${index + 1}.jpg`} 
             />
           </div>
         );
