@@ -7,11 +7,12 @@ const UserSchema = mongoose.Schema(
           "Email":   {type : String, required: false},
           "password": {type : String, required: false},
          "Mobile_Number": {type : Number, required: true,minLength:10}
-    },{
+    },
+    {
         versionKey : false,
         timeStamps : true
     }
 )
 
 
-export const User = mongoose.model('users',UserSchema)
+export const User = mongoose.model('users',UserSchema);
