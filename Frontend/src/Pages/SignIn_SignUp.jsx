@@ -8,6 +8,7 @@ import RegisterForm from "../Components/RegisterForm";
 export default function SignIn_SignUp() {
   const toast = useToast();
   const { page } = useParams();
+
   const [otp, setOtp] = useState("");
   const [inputOtp, setInputOtp] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
@@ -32,7 +33,9 @@ export default function SignIn_SignUp() {
   };
 
   const handleInputOtp = (e) => {
+
     setInputOtp(e.target.value);
+
   };
 
   const sendOtp = () => {
@@ -44,6 +47,8 @@ export default function SignIn_SignUp() {
       isClosable: true,
     });
   };
+
+
 
   return (
     <Box bg="#F6F6F7" pt={10} pb={5}>
