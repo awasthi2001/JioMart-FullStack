@@ -86,7 +86,7 @@ export default function ProductItem({ _id,item_img_url, item_final_price,
         </Box>
         {item_final_price && item_price ? (
           <Box position="absolute" top="5" left={-1}>
-            <Image
+            {/* <Image
               src="https://www.jiomart.com/assets/version1664452279/smartweb/images/icons/offer_bg.svg"
               width={50}
               height={50}
@@ -99,7 +99,7 @@ export default function ProductItem({ _id,item_img_url, item_final_price,
               fontSize="sm"
             >
               <span style={{ width: "bold" }}>{discountPercent}</span>% OFF
-            </Text>
+            </Text> */}
           </Box>
         ) : null}
       </Flex>
@@ -147,20 +147,20 @@ export default function ProductItem({ _id,item_img_url, item_final_price,
       </Link>
       {item_final_price && item_price ? (
         <Box position="absolute" top="5">
-          <Image
+          {/* <Image
             src="https://www.jiomart.com/assets/version1664452279/smartweb/images/icons/offer_bg.svg"
             width={50}
             height={50}
-          />
-          <Text
+          /> */}
+          {/* <Text
             position="absolute"
             top={1}
             left={3}
             color="white"
             fontSize="sm"
           >
-            <span style={{ width: "bold" }}>{discountPercent}</span>% OFF
-          </Text>
+            <span style={{ width: "bold",color:"black" }}>{discountPercent}% OFF</span>
+          </Text> */}
         </Box>
       ) : null}
       <Box mt={5}>

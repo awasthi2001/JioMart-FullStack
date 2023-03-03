@@ -8,6 +8,7 @@ import {
   Spacer,
   Text,
   useToast,
+  Image
 } from "@chakra-ui/react";
 import React, { useEffect, useState } from "react";
 import { CgProfile } from "react-icons/cg";
@@ -22,6 +23,7 @@ import OrderList from "../Components/OrdersList";
 
 const AccountPage = () => {
   const { isAuth } = useSelector((state) => state.auth);
+  const[loading,setloading] = useState(false);
   const [data, setdata] = useState({});
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -45,9 +47,11 @@ const AccountPage = () => {
   };
 
   let handleAccount = async () => {
+    setloading(true);
     let data1 = await fetch(`https://jiomart-server.cyclic.app/user/${id}`);
     let data2 = await data1.json();
     setdata(()=>data2.user);
+    setloading(false)
   };
   useEffect(() => {
     if (id == "" || id==null) {
@@ -56,7 +60,9 @@ const AccountPage = () => {
       handleAccount();
     }
   }, []);
-
+if(loading){
+  return <Box height="500px" display="flex" justifyContent="center" alignItems="center" ><Image width="250px" margin="auto" src="https://media.tenor.com/guhB4PpjrmUAAAAC/loading-loading-gif.gif"></Image></Box>
+}
   return (
     <Box bg={"whitesmoke"} padding={"50px 150px"}>
       <Heading mb="20px" fontSize="25px" as="h2">
