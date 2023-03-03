@@ -14,12 +14,15 @@ import  Styles  from "./Styles.module.css";
 const LeftDrawer = (props) => {
   const { isOpen, onClose, btnRef } = props;
   const [data,setdata] = useState({});
+  const[loading,setloading] = useState(false);
   const Navigate= useNavigate();
   let id = localStorage.getItem("user_id")||"";
   let handleAccount = async () => {
+    setloading(true);
     let data1 = await fetch(`https://jiomart-server.cyclic.app/user/${id}`);
     let data2 = await data1.json();
     setdata(data2.user);
+    setloading(false)
   };
   useEffect(()=>{
   
@@ -35,7 +38,9 @@ const LeftDrawer = (props) => {
   const openOrder = () =>{
 
   }
-
+  if(loading){
+    return <p>..loading</p>
+  }
   return  (
       <>
         
