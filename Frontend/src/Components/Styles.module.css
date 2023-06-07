@@ -11,8 +11,8 @@
 }
 
 .image{
-    padding-top: 5px;
     width: 100px;
+    margin-top: -30px;
 }
 .navlist{
     width: 100%;

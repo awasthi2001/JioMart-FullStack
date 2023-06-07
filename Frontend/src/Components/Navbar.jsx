@@ -21,6 +21,7 @@ let user_id = localStorage.getItem('user_id') || "";
     setSearch(e.target.value);
     // console.log(search)
   };
+  
   const handleEnter = (e) => {
     // console.log(search)
     if (e.key === "Enter") {
@@ -75,11 +76,11 @@ let user_id = localStorage.getItem('user_id') || "";
           <Box>
             <Link to={`/`}>
               <Image
-                w={["110px"]}
+                w={["100px"]}
                 minWidth={"75px"}
                 className={Styles.image}
-                cursor={"pointer"}
-                src="https://www.jiomart.com/assets/version1664452279/smartweb/images/jiomart_logo_beta.svg"
+                cursor={"pointer"}logo
+                src='http://drive.google.com/uc?export=view&id=1jg5j7pCf9ca-aVWt-Eb5WoysMlwE7JcQ'
                 alt="Jio Icon"
               />
             </Link>
